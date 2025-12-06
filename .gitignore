@@ -49,8 +49,13 @@ Thumbs.db
 *.env
 .env.*
 
-
 # .gitignore
 .env
 __pycache__/
 *.pyc
+
+# assets/
+assets/*.log
+assets/*.tmp
+assets/*
+assets

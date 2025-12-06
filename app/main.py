@@ -50,7 +50,12 @@ async def process_pdf(file: UploadFile = File(...)):
     output_filename = f"{job_id}_from_pdf.stl"
     output_path = os.path.join(TEMP_DIR, output_filename)
     
-    mesh = morphing_engine.generate_3d_model(metadata['size'], foot_data)
+    mesh = morphing_engine.generate_3d_model(
+    target_size=metadata['size'],
+    weight=metadata['weight'],
+    foot_data=foot_data
+)
+
     
     # Apply Diagnosis Modifiers (e.g., Supination found in text)
     # (Optional: Logic to add wedge if metadata['diagnosis'] == 'Supination')
